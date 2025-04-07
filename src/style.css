@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+
+@tailwind utilities;
+
+@layer utilities {
+  
+  .bg-gradient-onyx {
+    @apply bg-[linear-gradient(to_bottom_right,rgb(63,63,64)_3%,rgb(48,48,48)_97%)];
+  }
+
+  .bg-gradient-jet {
+    @apply bg-[linear-gradient(to_bottom_right,hsla(240,1%,18%,.251)_3%,hsla(240,2%,11%,0)_100%),hsl(240,2%,13%)];
+  }
+  
+  .bg-gradient-yellow1 {
+    @apply bg-[linear-gradient(to_bottom_right,hsl(45,100%,71%)_0%,hsla(36,100%,69%,0)_50%)];
+  }
+  
+  .bg-gradient-yellow2 {
+    @apply bg-[linear-gradient(135deg,hsla(45,100%,71%,.251)_0%,hsla(35,100%,68%,0)_59.86%),hsl(240,2%,13%)];
+  }
+
+  .border-gradient-onyx {
+    @apply border-[3px] border-transparent bg-clip-padding bg-[linear-gradient(to_bottom_right,hsl(0,0%,25%)_0%,hsla(0,0%,25%,0)_50%)];
+  }
+
+  .text-gradient-yellow {
+    @apply bg-gradient-to-r from-[rgb(255,219,112)] to-[rgb(255,187,92)] bg-clip-text text-transparent;
+  }
+
+  .shadow-custom1 {
+    @apply shadow-[-4px_8px_24px_rgba(0,0,0,0.25)];
+  }
+
+  .shadow-custom2 {
+    @apply shadow-[0px_16px_30px_hsla(0,0%,0%,.25)];
+  }
+
+  .shadow-custom3 {
+    @apply shadow-[0px_16px_40px_hsla(0,0%,0%,.25)];
+  }
+
+  .shadow-custom4 {
+    @apply shadow-[0px_25px_50px_hsla(0,0%,0%,.15)];
+  }
+
+  .shadow-custom5 {
+    @apply shadow-[0px_24px_80px_hsla(0,0%,0%,.25)];
+  }
+}
