@@ -28,3 +28,6 @@
         }
     })
 </script>
+
+git config --global user.email "sapaevmahmud2002@gmail.com"
+git config --global user.name "Makhmud"
