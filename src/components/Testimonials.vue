@@ -1,5 +1,6 @@
 <template>
-    <li class="testimonials-item min-w-[400px] flex flex-col justify-center p-5 rounded-2xl z-10 shadow-custom2  border-gradient-onyx  relative">
+    <li 
+    class="testimonials-item min-w-[400px] flex flex-col justify-center p-5 rounded-2xl z-10 shadow-custom2  border-gradient-onyx  relative cursor-pointer">
           <div class="content-card relative px-5 py-3" data-testimonials-item>
             <figure class="testimonials-avatar-box absolute -top-10 left-5 bg-gradient-onyx  rounded-2xl ">
               <img
