@@ -10,7 +10,7 @@
       <!-- Modal container with animations -->
       <div
         @click.stop
-        class="relative w-2/5 p-10 overflow-y-auto border border-[rgb(56,56,56)] bg-[rgb(32,32,34)] rounded-2xl transform transition-all duration-300 ease-in-out"
+        class="relative min-w-[300px] w-3/5 lg:w-2/5 p-10 overflow-y-auto border border-[rgb(56,56,56)] bg-[rgb(32,32,34)] rounded-2xl transform transition-all duration-300 ease-in-out"
         :class="
           isActive
             ? 'translate-y-0 scale-100 opacity-100'
@@ -20,17 +20,17 @@
       <button
             v-if="showCloseButton"
             @click="closeModal"
-            class="border absolute top-2 right-2 size-7 flex items-center justify-center rounded-sm bg-gradient-onyx opacity-70 hover:opacity-100"
+            class="border border-slate-400 absolute top-2 right-2 size-7 flex items-center justify-center rounded-sm bg-gradient-onyx opacity-70 hover:opacity-100"
             aria-label="Close modal"
           >
-          <ion-icon name="close-outline"></ion-icon>
+          <ion-icon class="text-slate-400" name="close-outline"></ion-icon>
           </button>
         <!-- Header -->
-        <div class="flex items-center justify-center gap-10">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10">
           <div class="modal-img-wrapper flex flex-col items-center justify-evenly min-w-1/5 gap-5">
           <figure class="modal-avatar-box bg-gradient-onyx rounded-2xl">
             <img
-              src="https://i.postimg.cc/zGDHfn3G/avatar-1.png"
+              :src="props.iconSrc"
               alt="Daniel Lewis"
               width="80"
               data-modal-img
@@ -44,21 +44,23 @@
         </div>
         <div class="modal-content flex flex-col gap-2">
           <h4 class="h3 modal-title font-bold text-3xl text-white " data-modal-title>
-            Daniel Lewis
+            <slot name="title">Daniel Lewis</slot> 
           </h4>
           <time
             datetime="2023-06-14"
             class="text-[rgb(214,214,214)] font-semibold"
-            >14 June, 2023</time
-          >
+            >14 June, 2023</time>
 
-          <div class="modal-text" data-modal-text>
+          <div class="modal-text" >
             <p class="font-light text-[rgb(214,214,214)] text-justify">
-              Richard was hired to create a corporate identity. It's modern,
+              <slot name="text">
+                Richard was hired to create a corporate identity. It's modern,
               clean and with a beautiful design that got a lot of praises from
               colleagues and visitors. We were very pleased with the work done.
               He has a lot of experience and is very concerned about the needs
               of client.
+              </slot>
+
             </p>
           </div>
         </div>
@@ -73,7 +75,8 @@
 
 <script setup>
 import { ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
-
+import { defineProps } from 'vue';
+    
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -95,6 +98,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  iconSrc:{
+            type: String,
+            default: "https://i.postimg.cc/zGDHfn3G/avatar-1.png"
+        }
 });
 
 const emit = defineEmits(["update:modelValue", "close"]);

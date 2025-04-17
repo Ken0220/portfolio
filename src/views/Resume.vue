@@ -1,17 +1,18 @@
+<script setup lang="ts">
+    import Header from '@/components/Header.vue';
+</script>
 <template>
     <article class="resume " data-page="resume">
-                <header>
-                    <h2 class="h2 article-title text-3xl font-bold pb-10 relative before:content-[''] before:absolute before:size-10 before:w-10 before:h-1 before:bottom-5 before:rounded-2xl before:bg-gradient-to-r before:from-[rgb(255,219,112))] before:to-[rgb(255,187,92)]">Resume</h2>
-                </header>
-                
+    
+        <Header>Resume</Header>
                 <section class="timeline py-5">
-                    <div class="title-wrapper flex items-center gap-10">
+                    <div class="title-wrapper flex items-center gap-5">
                         <div class="icon-box border-gradient-onyx shadow-custom2 size-15 rounded-2xl flex justify-center items-center"><ion-icon name="book-outline"></ion-icon></div>
 
                         <h3 class="h3 text-3xl font-bold py-5">Education</h3>
                     </div>
 
-                    <ol class="timeline-list px-25 font-light text-[rgb(214,214,214)] py-5 text-justify flex flex-col gap-5">
+                    <ol class="timeline-list font-light text-[rgb(214,214,214)] py-5 text-justify flex flex-col gap-5">
                         <li class="timeline-item ">
                             <h4 class="h4 timeline-item-title text-white font-bold py-2">University school of the arts</h4>
                             <span class="text-[rgb(206,177,90)]">2008 - 2010</span>
@@ -33,13 +34,13 @@
                 </section>
 
                 <section class="timeline py-5">
-                    <div class="title-wrapper flex items-center gap-10">
+                    <div class="title-wrapper flex items-center gap-5">
                         <div class="icon-box border-gradient-onyx shadow-custom2 size-15 rounded-2xl flex justify-center items-center"><ion-icon name="book-outline"></ion-icon></div>
 
                         <h3 class="h3 text-3xl font-bold py-5">Experience</h3>
                     </div>
 
-                    <ol class="timeline-list px-25 font-light text-[rgb(214,214,214)] py-5 text-justify flex flex-col gap-5">
+                    <ol class="timeline-list font-light text-[rgb(214,214,214)] py-5 text-justify flex flex-col gap-5">
                         <li class="timeline-item ">
                             <h4 class="h4 timeline-item-title text-white font-bold py-2">Creative director</h4>
                             <span class="text-[rgb(206,177,90)]">2015 - Present</span>

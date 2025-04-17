@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="sidebar w-full max-w-3/12 flex flex-col sticky top-5 h-full items-center p-10 mb-4 bg-[rgb(32,32,34)] border border-[rgb(56,56,56)] rounded-2xl shadow-xl"
+    class="sidebar w-full lg:max-w-3/12 flex flex-col lg:sticky top-5 h-full items-center p-10 mb-4 bg-[rgb(32,32,34)] border border-[rgb(56,56,56)] rounded-2xl shadow-xl"
   >
     <div class="sidebar-info flex flex-col justify-center items-center">
       <figure
@@ -35,7 +35,7 @@
         class="separator w-full bg-[rgb(56,56,56)] h-[1px] rounded-full my-10"
       ></div>
 
-      <ul class="contacts-list flex flex-col justify-center items-start gap-5">
+      <ul class="contacts-list lg:grid-cols-1 grid-cols-1 grid sm:grid-cols-2 justify-items-start gap-5 w-full">
         <li class="contact-item flex justify-center gap-5">
           <div
             class="icon-box flex justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1"
@@ -50,7 +50,7 @@
               Email
             </p>
 
-            <a href="mailto:richard@example.com" class="contact-link"
+            <a href="mailto:richard@example.com" class="contact-link lg:text-sm text-base xl:text-base"
               >richardexample.com</a
             >
           </div>
@@ -70,7 +70,7 @@
               Phone
             </p>
 
-            <a href="tel:+12133522795" class="contact-link"
+            <a href="tel:+12133522795" class="contact-link lg:text-sm text-base xl:text-base"
               >+1 (213) 352-2795</a
             >
           </div>
@@ -90,7 +90,7 @@
               Birthday
             </p>
 
-            <time datetime="1982-06-23">June 23, 1982</time>
+            <time datetime="1982-06-23" class="lg:text-sm text-base xl:text-base">June 23, 1982</time>
           </div>
         </li>
 
@@ -108,7 +108,7 @@
               Location
             </p>
 
-            <address>Sacramento, California, USA</address>
+            <address class="lg:text-sm text-base xl:text-base">Sacramento, California, USA</address>
           </div>
         </li>
       </ul>

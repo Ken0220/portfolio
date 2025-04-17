@@ -6,8 +6,8 @@
                                     </figure>
 
                                 <div class="blog-content p-5">
-                                    <div class="blog-meta flex items-center py-2 gap-2 text-[rgb(214,214,214)]">
-                                        <p class="blog-category"><slot name="directory">Theme</slot></p>
+                                    <div class="blog-meta flex items-center py-2 gap-2 text-sm sm:text-base text-[rgb(214,214,214)]">
+                                        <p class="blog-category "><slot name="directory">Theme</slot></p>
                                         <div class="size-1 rounded-full bg-[rgb(214,214,214)]"></div>
                                         <time datetime="2024-02-23"><slot name="date">Date</slot></time>
                                     </div>

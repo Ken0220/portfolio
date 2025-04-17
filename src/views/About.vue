@@ -1,20 +1,21 @@
 <script setup lang="ts">
 import Card from "@/components/Card.vue";
+import Header from "@/components/Header.vue";
 import Testimonials from "@/components/Testimonials.vue";
 import Clients from "@/components/Clients.vue";
-import { clients, testemonials } from "../assets/data/demo";
+import { clients, testemonials, cardElements } from "../assets/data/demo";
 import { ref } from "vue";
+import MotionModal from "@/components/MotionModal.vue";
+
 const showModal = ref(false);
 const myData = ref(testemonials);
 
 const handleConfirm = () => {
-  // Handle confirmation action
-  console.log("Confirmed!");
   showModal.value = false;
 };
 
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Scrollbar } from "swiper/modules";
+import { Autoplay, Scrollbar } from "swiper/modules";
 
 // Swiper CSS
 import "swiper/css";
@@ -23,13 +24,7 @@ import "swiper/css/scrollbar";
 
 <template>
   <article class="about active" data-page="about">
-    <header>
-      <h2
-        class="h2 article-title text-3xl font-bold pb-10 relative before:content-[''] before:absolute before:size-10 before:w-10 before:h-1 before:bottom-5 before:rounded-2xl before:bg-gradient-to-r before:from-[rgb(255,219,112))] before:to-[rgb(255,187,92)]"
-      >
-        About me
-      </h2>
-    </header>
+    <Header>About</Header>
 
     <section
       class="about-text font-light text-[rgb(214,214,214)] py-5 text-justify"
@@ -51,35 +46,10 @@ import "swiper/css/scrollbar";
 
     <section class="service">
       <h3 class="h3 service-title text-3xl font-bold py-5">What I'm doing</h3>
-
-      <ul class="service-list grid grid-cols-2 gap-5">
-        <Card icon-src="https://i.postimg.cc/4389jZkP/icon-design.png">
-          <template v-slot:description
-            >The most modern and high-quality design made at a professional
-            level.</template
-          >
-          <template v-slot:title> Web Design </template>
-        </Card>
-        <Card icon-src="https://i.postimg.cc/ZqgqrqzG/icon-dev.png">
-          <template v-slot:description
-            >High-quality development of sites at the professional
-            level.</template
-          >
-          <template v-slot:title> Web development </template>
-        </Card>
-        <Card icon-src="https://i.postimg.cc/xjLdzYxZ/icon-app.png">
-          <template v-slot:description
-            >Professional development of applications for iOS and
-            Android.</template
-          >
-          <template v-slot:title>Mobile apps</template>
-        </Card>
-        <Card icon-src="https://i.postimg.cc/0NL8zHpx/icon-photo.png">
-          <template v-slot:description
-            >I make high-quality photos of any category at a professional
-            level.</template
-          >
-          <template v-slot:title>Photography</template>
+      <ul class="grid md:grid-cols-2 gap-5">
+        <Card :icon-src="el.icon" v-for="(el, i) in cardElements" :key="i">
+          <template v-slot:description>{{ el.description }}</template>
+          <template v-slot:title>{{ el.title }}</template>
         </Card>
       </ul>
     </section>
@@ -90,20 +60,35 @@ import "swiper/css/scrollbar";
       </h3>
       <ul class="testimonials-list has-scrollbar flex gap-10 py-5">
         <swiper
-          :modules="[Scrollbar]"
-          :slides-per-view="2.5"
+          :modules="[Scrollbar, Autoplay]"
+          :autoPlay="{ delay: 3000 }"
+          :breakpoints="{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 1.5,
+            },
+            1024: {
+              slidesPerView: 2,
+            },
+            1200: {
+              slidesPerView: 2.5,
+            },
+          }"
           class="w-full flex items-center justify-center"
         >
           <swiper-slide
             v-for="(el, index) in testemonials"
             :key="index"
-            class="p-10"
+            class="py-10 px-5"
             ><Testimonials @click="showModal = true" :icon-src="el.avatar">
               <template v-slot:personName>{{ el.name }}</template>
               <template v-slot:text>{{ el.comment }}</template>
             </Testimonials>
           </swiper-slide>
         </swiper>
+        <MotionModal v-model="showModal" title="Animated Modal"></MotionModal>
       </ul>
     </section>
 
@@ -112,13 +97,24 @@ import "swiper/css/scrollbar";
       <ul class="clients-list has-scrollbar flex overflow-x-scroll py-10">
         <swiper
           :modules="[Scrollbar]"
-          :slides-per-view="3"
+          :breakpoints="{
+            540: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+
+            1200: {
+              slidesPerView: 3,
+            },
+          }"
           class="w-full flex items-center justify-center"
         >
           <swiper-slide
             v-for="(el, index) in clients"
             :key="index"
-            class="p-10"
+            class="py-10"
           >
             <Clients :icon-src="el.link"></Clients>
           </swiper-slide>
@@ -127,16 +123,3 @@ import "swiper/css/scrollbar";
     </section>
   </article>
 </template>
-<style scoped>
-:deep(.swiper-scrollbar) {
-  height: 5px;
-  width: 50%;
-  background-color: #f3f4f6;
-  left: 25%;
-  border-radius: 9999px;
-}
-:deep(.swiper-scrollbar-drag) {
-  background-color: rgb(206, 177, 90);
-  border-radius: 9999px; /* emerald-500 */
-}
-</style>

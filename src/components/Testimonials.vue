@@ -1,8 +1,8 @@
 <template>
     <li 
-    class="testimonials-item min-w-[400px] flex flex-col justify-center p-5 rounded-2xl z-10 shadow-custom2  border-gradient-onyx  relative cursor-pointer">
-          <div class="content-card relative px-5 py-3" data-testimonials-item>
-            <figure class="testimonials-avatar-box absolute -top-10 left-5 bg-gradient-onyx  rounded-2xl ">
+    class="testimonials-item  flex flex-col justify-center p-5 rounded-2xl z-10 shadow-custom2  border-gradient-onyx  relative cursor-pointer">
+          <div class="content-card relative px-5 py-3 flex flex-col items-center justify-center sm:items-start" data-testimonials-item>
+            <figure class="testimonials-avatar-box sm:absolute -top-10 left-5 bg-gradient-onyx  rounded-2xl ">
               <img
                 :src="props.iconSrc"
                 alt="avatar"
@@ -11,7 +11,7 @@
               />
             </figure>
 
-            <h4 class="h4 testimonials-item-title text-xl font-bold ml-20 " data-testimonials-title>
+            <h4 class="h4 testimonials-item-title text-xl font-bold sm:ml-20 " data-testimonials-title>
               <slot name="personName">Name</slot>
             </h4>
 
