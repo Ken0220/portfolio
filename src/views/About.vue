@@ -7,12 +7,12 @@ import { clients, testemonials, cardElements } from "../assets/data/demo";
 import { ref } from "vue";
 import MotionModal from "@/components/MotionModal.vue";
 
-const showModal = ref(false);
-const myData = ref(testemonials);
-
-const handleConfirm = () => {
-  showModal.value = false;
-};
+const myData = ref(
+  testemonials.map((item) => ({
+    ...item,
+    showModal: false,
+  }))
+);
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Scrollbar } from "swiper/modules";
@@ -79,16 +79,22 @@ import "swiper/css/scrollbar";
           class="w-full flex items-center justify-center"
         >
           <swiper-slide
-            v-for="(el, index) in testemonials"
+            v-for="(el, index) in myData"
             :key="index"
             class="py-10 px-5"
-            ><Testimonials @click="showModal = true" :icon-src="el.avatar">
+            ><Testimonials @click="el.showModal = true" :icon-src="el.avatar">
               <template v-slot:personName>{{ el.name }}</template>
               <template v-slot:text>{{ el.comment }}</template>
             </Testimonials>
+            <MotionModal
+              :name="el.name"
+              :comment="el.comment"
+              :icon-src="el.avatar"
+              v-model="el.showModal"
+              title="Animated Modal"
+            ></MotionModal>
           </swiper-slide>
         </swiper>
-        <MotionModal v-model="showModal" title="Animated Modal"></MotionModal>
       </ul>
     </section>
 

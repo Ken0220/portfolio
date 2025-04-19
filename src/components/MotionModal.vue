@@ -5,7 +5,11 @@
       class="fixed inset-0 z-50 flex items-center justify-center"
     >
       <!-- Backdrop with fade in/out -->
-      <div @click="closeOnBackdrop ? closeModal() : null" class="absolute inset-0 bg-black transition-opacity duration-300 ease-in-out" :class="isActive ? 'opacity-50' : 'opacity-0'"></div>
+      <div
+        @click="closeOnBackdrop ? closeModal() : null"
+        class="absolute inset-0 bg-black transition-opacity duration-300 ease-in-out"
+        :class="isActive ? 'opacity-50' : 'opacity-0'"
+      ></div>
 
       <!-- Modal container with animations -->
       <div
@@ -17,57 +21,59 @@
             : 'translate-y-4 scale-95 opacity-0'
         "
       >
-      <button
-            v-if="showCloseButton"
-            @click="closeModal"
-            class="border border-slate-400 absolute top-2 right-2 size-7 flex items-center justify-center rounded-sm bg-gradient-onyx opacity-70 hover:opacity-100"
-            aria-label="Close modal"
-          >
+        <button
+          v-if="showCloseButton"
+          @click="closeModal"
+          class="border border-slate-400 absolute top-2 right-2 size-7 flex items-center justify-center rounded-sm bg-gradient-onyx opacity-70 hover:opacity-100"
+          aria-label="Close modal"
+        >
           <ion-icon class="text-slate-400" name="close-outline"></ion-icon>
-          </button>
+        </button>
         <!-- Header -->
-        <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-          <div class="modal-img-wrapper flex flex-col items-center justify-evenly min-w-1/5 gap-5">
-          <figure class="modal-avatar-box bg-gradient-onyx rounded-2xl">
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-10"
+        >
+          <div
+            class="modal-img-wrapper flex flex-col items-center justify-evenly min-w-1/5 gap-5"
+          >
+            <figure class="modal-avatar-box bg-gradient-onyx rounded-2xl">
+              <img
+                :src="props.iconSrc"
+                alt="Daniel Lewis"
+                width="80"
+                data-modal-img
+              />
+            </figure>
+
             <img
-              :src="props.iconSrc"
-              alt="Daniel Lewis"
-              width="80"
-              data-modal-img
+              src="https://i.postimg.cc/mZ00RwX7/icon-quote.png"
+              alt="quote icon"
             />
-          </figure>
-
-          <img
-            src="https://i.postimg.cc/mZ00RwX7/icon-quote.png"
-            alt="quote icon"
-          />
-        </div>
-        <div class="modal-content flex flex-col gap-2">
-          <h4 class="h3 modal-title font-bold text-3xl text-white " data-modal-title>
-            <slot name="title">Daniel Lewis</slot> 
-          </h4>
-          <time
-            datetime="2023-06-14"
-            class="text-[rgb(214,214,214)] font-semibold"
-            >14 June, 2023</time>
-
-          <div class="modal-text" >
-            <p class="font-light text-[rgb(214,214,214)] text-justify">
-              <slot name="text">
-                Richard was hired to create a corporate identity. It's modern,
-              clean and with a beautiful design that got a lot of praises from
-              colleagues and visitors. We were very pleased with the work done.
-              He has a lot of experience and is very concerned about the needs
-              of client.
-              </slot>
-
-            </p>
           </div>
-        </div>
+          <div class="modal-content flex flex-col gap-2">
+            <h4
+              class="h3 modal-title font-bold text-3xl text-white"
+              data-modal-title
+            >
+              <slot name="title">{{ props.name }}</slot>
+            </h4>
+            <time
+              datetime="2023-06-14"
+              class="text-[rgb(214,214,214)] font-semibold"
+              >14 June, 2023</time
+            >
+
+            <div class="modal-text">
+              <p class="font-light text-[rgb(214,214,214)] text-justify">
+                <slot name="text">
+                  {{ props.comment }}
+                </slot>
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- Body -->
-        
       </div>
     </div>
   </Teleport>
@@ -75,8 +81,8 @@
 
 <script setup>
 import { ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
-import { defineProps } from 'vue';
-    
+import { defineProps } from "vue";
+
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -98,10 +104,16 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  iconSrc:{
-            type: String,
-            default: "https://i.postimg.cc/zGDHfn3G/avatar-1.png"
-        }
+  name: {
+    type: String,
+  },
+  comment: {
+    type: String,
+  },
+  iconSrc: {
+    type: String,
+    default: "https://i.postimg.cc/zGDHfn3G/avatar-1.png",
+  },
 });
 
 const emit = defineEmits(["update:modelValue", "close"]);
