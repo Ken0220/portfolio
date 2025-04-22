@@ -1,5 +1,5 @@
 <template>
-    <li class="clients-item flex items-center justify-center min-w-[300px] cursor-pointer">
+    <li class="clients-item flex items-center justify-center cursor-pointer">
           <a href="#"
             ><img
             class="invert brightness-0 hover:invert-0 hover:brightness-100 transition-all duration-300"

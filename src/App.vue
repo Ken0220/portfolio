@@ -20,7 +20,7 @@ onMounted(() => {
         <Sidebar  class="transition-all lg:duration-500 " :class="loaded == true? 'translate-x-0': '-translate-x-full'" />
       
       
-        <div class="w-full lg:w-9/12 mb-4 bg-[rgb(32,32,34)] border border-[rgb(56,56,56)] rounded-2xl shadow-xl relative transition-all lg:duration-500"
+        <div class="w-full lg:w-9/12 sm:mb-4 mb-20 bg-[rgb(32,32,34)] border border-[rgb(56,56,56)] rounded-2xl shadow-xl relative transition-all lg:duration-500"
         :class="loaded == true? 'opacity-100': 'opacity-0'">
           <NavItems class="z-10 absolute top-0 left-0 hidden md:flex"/>
           <Transition

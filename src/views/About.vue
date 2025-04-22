@@ -100,7 +100,7 @@ import "swiper/css/scrollbar";
 
     <section class="clients">
       <h3 class="h3 clients-title text-3xl font-bold py-5">Clients</h3>
-      <ul class="clients-list has-scrollbar flex overflow-x-scroll ">
+      
         <swiper
           :modules="[Scrollbar]"
           :breakpoints="{
@@ -125,7 +125,6 @@ import "swiper/css/scrollbar";
             <Clients :icon-src="el.link"></Clients>
           </swiper-slide>
         </swiper>
-      </ul>
     </section>
   </article>
 </template>
