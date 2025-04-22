@@ -64,7 +64,7 @@
                 <section class="skill">
                     <h3 class="h3 skills-title text-3xl font-bold py-5">My Skills</h3>
 
-                    <ul class="skills-list content-card border-gradient-onyx shadow-custom2 p-10 rounded-2xl flex flex-col gap-10">
+                    <ul class="skills-list content-card border-gradient-onyx shadow-custom2 sm:p-10 p-5 rounded-2xl flex flex-col gap-10 mb-10 min-[380px]:mb-0">
                         <li class="skills-item flex flex-col gap-4">
                             <div class="title-wrapper flex gap-4">
                                 <h5 class="h5">Web Design</h5>

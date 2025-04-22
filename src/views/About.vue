@@ -46,7 +46,7 @@ import "swiper/css/scrollbar";
 
     <section class="service">
       <h3 class="h3 service-title text-3xl font-bold py-5">What I'm doing</h3>
-      <ul class="grid md:grid-cols-2 gap-5">
+      <ul class="grid md:grid-cols-2 gap-5 py-5">
         <Card :icon-src="el.icon" v-for="(el, i) in cardElements" :key="i">
           <template v-slot:description>{{ el.description }}</template>
           <template v-slot:title>{{ el.title }}</template>
@@ -100,7 +100,7 @@ import "swiper/css/scrollbar";
 
     <section class="clients">
       <h3 class="h3 clients-title text-3xl font-bold py-5">Clients</h3>
-      <ul class="clients-list has-scrollbar flex overflow-x-scroll py-10">
+      <ul class="clients-list has-scrollbar flex overflow-x-scroll ">
         <swiper
           :modules="[Scrollbar]"
           :breakpoints="{

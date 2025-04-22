@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="sidebar w-full lg:max-w-3/12 flex flex-col lg:sticky top-5 h-full items-center p-10 mb-4 bg-[rgb(32,32,34)] border border-[rgb(56,56,56)] rounded-2xl shadow-xl"
+    class="sidebar w-full lg:max-w-3/12 flex flex-col lg:sticky top-5 h-full items-center p-5 sm:p-10 mb-4 bg-[rgb(32,32,34)] border border-[rgb(56,56,56)] rounded-2xl shadow-xl"
   >
     <div class="sidebar-info flex flex-col justify-center items-center">
       <figure
@@ -38,7 +38,7 @@
       <ul class="contacts-list lg:grid-cols-1 grid-cols-1 grid sm:grid-cols-2 justify-items-start gap-5 w-full">
         <li class="contact-item flex justify-center gap-5">
           <div
-            class="icon-box flex justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1"
+            class="icon-box justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1 flex max-[380px]:hidden"
           >
             <ion-icon name="mail-outline"></ion-icon>
           </div>
@@ -58,7 +58,7 @@
 
         <li class="contact-item flex justify-center gap-5">
           <div
-            class="icon-box flex justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1"
+            class="icon-box flex max-[380px]:hidden justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1"
           >
             <ion-icon name="phone-portrait-outline"></ion-icon>
           </div>
@@ -78,7 +78,7 @@
 
         <li class="contact-item flex justify-center gap-5">
           <div
-            class="icon-box flex justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1"
+            class="icon-box flex max-[380px]:hidden justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1"
           >
             <ion-icon name="calendar-outline"></ion-icon>
           </div>
@@ -96,7 +96,7 @@
 
         <li class="contact-item flex justify-center gap-5">
           <div
-            class="icon-box flex justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1"
+            class="icon-box flex max-[380px]:hidden justify-center items-center relative rounded-xl size-12 border-gradient-onyx shadow-custom1"
           >
             <ion-icon name="location-outline"></ion-icon>
           </div>
